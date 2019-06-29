@@ -17,11 +17,16 @@ export class AuthService {
     this.loadToken()
   }
 
+  logout() {
+    localStorage.removeItem('token')
+  }
+
   login(user: UserModel) {
     const AUTHDATA = {
       ...user,
       returnSecureToken: true
     };
+
     return this.http.post(`${this.url}/verifyPassword?key=${this.apiKey}`, AUTHDATA) 
     .pipe(map(resp => {
       this.saveToken(resp['idToken'])
@@ -29,15 +34,12 @@ export class AuthService {
     }))
   }
 
-  logout(user: UserModel) {
-
-  }
-
   signup(user: UserModel) {
     const AUTHDATA = {
       ...user,
       returnSecureToken: true
     };
+
     return this.http.post(`${this.url}/signupNewUser?key=${this.apiKey}`, AUTHDATA)
       .pipe(map(resp => {
         this.saveToken(resp['idToken'])
@@ -48,6 +50,9 @@ export class AuthService {
   private saveToken(idToken: string) {
     this.userToken = idToken
     localStorage.setItem('token', idToken)
+    let today = new Date();
+    today.setSeconds(3600)
+    localStorage.setItem('expires', today.getTime().toString())
   }
 
   loadToken() {
@@ -60,7 +65,19 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    return this.userToken.length > 2
+    if (this.userToken.length < 2) {
+      return false
+    }
+    
+    const EXPIRE = Number(localStorage.getItem('expire'))
+    const EXPIREDATE = new Date()
+    EXPIREDATE.setTime(EXPIRE)
+
+    if (EXPIREDATE > new Date()) {
+      return true
+    } else {
+      return false
+    }
   }
 
 }
