@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { UserModel } from 'src/app/models/user.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
+  selector: 'app-register',
+  templateUrl: './register.component.html',
   styles: []
 })
-export class LoginComponent implements OnInit {
+export class RegisterComponent implements OnInit {
   user: UserModel
 
   constructor() { }
@@ -16,14 +16,17 @@ export class LoginComponent implements OnInit {
     this.user = new UserModel();
   }
 
-  login(loginForm: NgForm) {
-    if (loginForm.invalid) {
+  onSubmit(registerForm: NgForm) {
+
+    if (registerForm.invalid) {
       return;
     }
 
     console.log('Formulario enviado');
     console.log(this.user);
-    console.log(loginForm);
+    console.log(registerForm);
+    
+    
   }
 
 }
