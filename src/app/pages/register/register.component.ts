@@ -36,7 +36,6 @@ export class RegisterComponent implements OnInit {
     Swal.showLoading();
     this.auth.signup(this.user)
       .subscribe(resp => {
-        console.log(resp);
         Swal.close();
         if (localStorage.getItem('email')) {
           this.user.email = localStorage.getItem('email')
@@ -44,7 +43,6 @@ export class RegisterComponent implements OnInit {
         }
         this.router.navigateByUrl('/home/search')
       }, (err) => {
-        console.log(err.error.error.message);
         Swal.fire({
           type: 'error',
           title: 'Authentication error',
