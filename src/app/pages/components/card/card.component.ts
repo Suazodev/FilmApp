@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Film } from 'src/app/interfaces/film';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-card',
@@ -15,16 +16,28 @@ export class CardComponent {
     if (JSON.parse(localStorage.getItem('Films'))) {
       this.filmArr = JSON.parse(localStorage.getItem('Films'))
     }
-    
+
   }
 
   addToFavorites(item) {
+    if (JSON.parse(localStorage.getItem('Films'))) {
+      for (let i = 0; i < JSON.parse(localStorage.getItem('Films')).length; i++) {
+        const element = JSON.parse(localStorage.getItem('Films'))[i];
+        if (item.Title === element.Title) {
+          Swal.fire({
+            type: 'error',
+            title: "The film already exists in favorites"
+          })
+          return
+        }
+      }
+    }
     this.filmArr.push(item)
     localStorage.setItem('Films', JSON.stringify(this.filmArr))
   }
 
   removeToFavorites(item) {
-    for (let i = 0; i < JSON.parse(localStorage.getItem('Films')).length; i++) {   
+    for (let i = 0; i < JSON.parse(localStorage.getItem('Films')).length; i++) {
       const element = JSON.parse(localStorage.getItem('Films'))[i];
       if (item.Title === element.Title) {
         this.items.splice(i, 1)
