@@ -27,11 +27,11 @@ export class AuthService {
       returnSecureToken: true
     };
 
-    return this.http.post(`${this.url}/verifyPassword?key=${this.apiKey}`, AUTHDATA) 
-    .pipe(map(resp => {
-      this.saveToken(resp['idToken'])
-      return resp
-    }))
+    return this.http.post(`${this.url}/verifyPassword?key=${this.apiKey}`, AUTHDATA)
+      .pipe(map(resp => {
+        this.saveToken(resp['idToken'])
+        return resp
+      }))
   }
 
   signup(user: UserModel) {
@@ -68,7 +68,7 @@ export class AuthService {
     if (this.userToken.length < 2) {
       return false
     }
-    
+
     let EXPIRE = Number(localStorage.getItem('expire'))
     let EXPIREDATE = new Date()
     EXPIREDATE.setTime(EXPIRE)

@@ -1,4 +1,4 @@
-import { Component, AfterContentInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FilmsService } from 'src/app/services/films.service';
 import { Film } from 'src/app/interfaces/film';
 
@@ -7,20 +7,16 @@ import { Film } from 'src/app/interfaces/film';
   templateUrl: './favorites.component.html',
   styles: []
 })
-export class FavoritesComponent implements AfterContentInit {
+export class FavoritesComponent implements OnInit {
 
-  
-  newFilm: Film
+  films: Film[] = []
 
-  constructor(private films: FilmsService) {
-    
-  }
-
-  ngAfterContentInit(): void {
-    this.films.getFilm()
-      .subscribe((film: Film) => {
-        console.log(film);
-        this.newFilm = film
-      })
+  constructor(private _films: FilmsService) { }
+  ngOnInit(): void {
+    // this.films.getFilm()
+    //     .subscribe((film: Film) => {
+    //       console.log(film);
+    //       this.newFilm = film
+    //     })
   }
 }

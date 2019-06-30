@@ -1,1 +1,8 @@
-<p>search works!</p>
+<div class="row m-5">
+    <div class="col">
+        <input #word type="text" (keyup.enter)="search(word.value)" class="form-control" placeholder="Search film...">
+    </div>
+</div>
+<hr>
+
+<app-card [items]="newFilms"></app-card>

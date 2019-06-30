@@ -6,13 +6,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FilmsService {
 
-  constructor(private http: HttpClient) { 
-    console.log("funcionando");
-    
+  constructor(private http: HttpClient) {
   }
 
   getFilm(text?: string) {
     return this.http.get(`http://www.omdbapi.com/?apikey=f12ba140&t=${text}`)
   }
-
 }

@@ -1,17 +1,1 @@
-<div class="m-5">
-    <hr>
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <img [src]="newFilm.Poster" class="card-img" [alt]="newFilm.Title">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">{{ newFilm.Title }}</h5>
-              <p class="card-text"><strong>Description: </strong>{{ newFilm.Plot }}</p>
-              <p class="card-text"><small class="badge badge-pill badge-primary"><strong>Year: </strong>{{ newFilm.Year }}</small></p>
-            </div>
-          </div>
-        </div>
-      </div>
-</div>
+<app-card [items]="films"></app-card>

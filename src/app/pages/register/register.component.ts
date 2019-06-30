@@ -51,6 +51,6 @@ export class RegisterComponent implements OnInit {
           text: err.error.error.message
         })
       }
-    )
+      )
   }
 }

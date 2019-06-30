@@ -1,13 +1,15 @@
 <div class="limiter animated fadeInRight">
     <div class="container-login100">
         <div class="wrap-login100 p-t-50 p-b-90">
-            <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="login100-form validate-form flex-sb flex-w">
+            <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)"
+                class="login100-form validate-form flex-sb flex-w">
 
                 <span class="login100-form-title p-b-51">
                     Create Account
                 </span>
 
-                <span *ngIf="registerForm.submitted && registerForm.controls['email'].errors" class="text-danger animated fadeIn">The email is required</span>
+                <span *ngIf="registerForm.submitted && registerForm.controls['email'].errors"
+                    class="text-danger animated fadeIn">The email is required</span>
                 <div class="wrap-input100 m-b-16">
                     <input class="input100" type="email" name="email" [(ngModel)]="user.email" required email
                         placeholder="Email">
@@ -15,16 +17,18 @@
                     <span class="focus-input100"></span>
                 </div>
 
-                <span *ngIf="registerForm.submitted && registerForm.controls['password'].errors" class="text-danger animated fadeIn">The password should have 6 characters at least</span>
+                <span *ngIf="registerForm.submitted && registerForm.controls['password'].errors"
+                    class="text-danger animated fadeIn">The password should have 6 characters at least</span>
                 <div class="wrap-input100 m-b-16">
-                    <input class="input100" type="password" name="password" [(ngModel)]="user.password" required minlength="6"
-                        placeholder="Password">
+                    <input class="input100" type="password" name="password" [(ngModel)]="user.password" required
+                        minlength="6" placeholder="Password">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="flex-sb-m w-full p-t-3 p-b-24">
                     <div class="contact100-form-checkbox">
-                        <input [(ngModel)]="rememberUser" class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                        <input [(ngModel)]="rememberUser" class="input-checkbox100" id="ckb1" type="checkbox"
+                            name="remember-me">
                         <label class="label-checkbox100" for="ckb1">
                             Remember user
                         </label>

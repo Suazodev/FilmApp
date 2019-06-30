@@ -12,6 +12,7 @@ import { NavbarComponent } from './pages/components/navbar/navbar.component';
 import { SearchComponent } from './pages/search/search.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { HomeComponent } from './pages/home/home.component';
+import { CardComponent } from './pages/components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HomeComponent } from './pages/home/home.component';
     LoginComponent,
     NavbarComponent,
     SearchComponent,
-    HomeComponent
+    HomeComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
