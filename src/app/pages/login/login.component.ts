@@ -42,12 +42,10 @@ export class LoginComponent implements OnInit {
     this.auth.login(this.user)
       .subscribe(resp => {
         Swal.close();
-
         if (this.rememberUser) {
           localStorage.setItem('email', this.user.email)
         }
-
-        this.router.navigateByUrl('/home')
+        this.router.navigateByUrl('/home/favorites')
 
       }, (err) => {
         Swal.fire({

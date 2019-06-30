@@ -7,15 +7,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { RegisterComponent } from './pages/register/register.component';
-import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { NavbarComponent } from './pages/components/navbar/navbar.component';
+import { SearchComponent } from './pages/search/search.component';
+import { FavoritesComponent } from './pages/favorites/favorites.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    HomeComponent,
-    LoginComponent
+    FavoritesComponent,
+    LoginComponent,
+    NavbarComponent,
+    SearchComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

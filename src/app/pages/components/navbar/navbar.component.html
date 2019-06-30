@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" style="color: white">FilmApp</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="favorites">Favorites<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="search">Search</a>
+            </li>
+        </ul>
+    </div>
+    <button class="btn btn-outline-danger" (click)="logout()">Logout</button>
+</nav>
+<router-outlet></router-outlet>

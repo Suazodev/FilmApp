@@ -42,7 +42,7 @@ export class RegisterComponent implements OnInit {
           this.user.email = localStorage.getItem('email')
           this.rememberUser = true
         }
-        this.router.navigateByUrl('/home')
+        this.router.navigateByUrl('/home/search')
       }, (err) => {
         console.log(err.error.error.message);
         Swal.fire({
