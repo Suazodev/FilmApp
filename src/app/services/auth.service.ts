@@ -52,7 +52,7 @@ export class AuthService {
     localStorage.setItem('token', idToken)
     let today = new Date();
     today.setSeconds(3600)
-    localStorage.setItem('expires', today.getTime().toString())
+    localStorage.setItem('expire', today.getTime().toString())
   }
 
   loadToken() {
@@ -69,8 +69,8 @@ export class AuthService {
       return false
     }
     
-    const EXPIRE = Number(localStorage.getItem('expire'))
-    const EXPIREDATE = new Date()
+    let EXPIRE = Number(localStorage.getItem('expire'))
+    let EXPIREDATE = new Date()
     EXPIREDATE.setTime(EXPIRE)
 
     if (EXPIREDATE > new Date()) {
