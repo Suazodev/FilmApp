@@ -1,22 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { FilmsService } from 'src/app/services/films.service';
-import { Film } from 'src/app/interfaces/film';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.component.html',
   styles: []
 })
-export class FavoritesComponent implements OnInit {
+export class FavoritesComponent {
+  films: any[]
+  favoritesFilms = []
+  exists = false
 
-  films: Film[] = []
-
-  constructor(private _films: FilmsService) { }
-  ngOnInit(): void {
-    // this.films.getFilm()
-    //     .subscribe((film: Film) => {
-    //       console.log(film);
-    //       this.newFilm = film
-    //     })
+  constructor() {
+    this.films = JSON.parse(localStorage.getItem('Films'))
   }
+
 }

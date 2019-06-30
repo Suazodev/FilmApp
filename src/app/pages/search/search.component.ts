@@ -10,6 +10,8 @@ import Swal from 'sweetalert2';
 })
 export class SearchComponent {
   newFilms: Film[] = []
+  exists = true
+
 
   constructor(private _film: FilmsService) { }
 
