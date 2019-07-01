@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { Film } from 'src/app/interfaces/film';
+
+
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -12,7 +14,9 @@ export class CardComponent {
   @Input() exists: boolean = true
   filmArr = []
 
-  constructor() {
+  constructor(
+    private router: Router
+  ) {
     if (JSON.parse(localStorage.getItem('Films'))) {
       this.filmArr = JSON.parse(localStorage.getItem('Films'))
     }
@@ -48,5 +52,9 @@ export class CardComponent {
     if (JSON.parse(localStorage.getItem('Films')).length < 1) {
       localStorage.removeItem('Films')
     }
+  }
+
+  seeDetails(item) {
+    this.router.navigate(['/details', item])
   }
 }

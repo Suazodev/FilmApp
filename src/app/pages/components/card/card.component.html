@@ -1,10 +1,8 @@
 <div class="card-columns m-5">
     <div class="card mb-3" *ngFor="let item of items" style="max-width: 540px;">
         <div class="row no-gutters">
-            <div class="col-md-4">
-                <img [src]="item.Poster" class="card-img m-1" [alt]="item.Title">
-                <button *ngIf="exists" type="text" class="btn btn-primary m-1" (click)="addToFavorites(item)" >Add to favorites</button>
-                <button *ngIf="!exists" type="text" class="btn btn-danger m-1" (click)="removeToFavorites(item)" >Remove to favorites</button>
+            <div class="col-md-4" (click)="seeDetails(item.Title)">
+                <img [src]="item.Poster" class="card-img m-1 pointer" [alt]="item.Title">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
@@ -15,6 +13,8 @@
                     <p class="card-text">
                         <small class="badge badge-pill badge-primary">Year:{{ item.Year }}</small>
                     </p>
+                    <button *ngIf="exists" type="text" class="btn btn-primary m-1" (click)="addToFavorites(item)" >Add to favorites</button>
+                    <button *ngIf="!exists" type="text" class="btn btn-danger m-1" (click)="removeToFavorites(item)" >Remove to favorites</button>
                 </div>
             </div>
         </div>
